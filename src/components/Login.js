@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import {Redirect} from 'react-router-dom'
-import {logIn, checkAuth} from '../util/auth'
+import {logIn} from '../util/auth'
 
 class Login extends Component {
   state = {
@@ -10,10 +10,6 @@ class Login extends Component {
     username: '',
     password: '',
     showError: false
-  }
-
-  handleLogin_ = () => {
-    console.log(this.state)
   }
 
   handleLogin = () => {
