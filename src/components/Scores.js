@@ -28,7 +28,7 @@ class Scores extends Component {
     let completedScores = []
     let pendingScores = []
     this.state.scores.forEach(score => {
-      if (score.score !== 0) {
+      if (score.score > 0) {
         completedScores.push(<h1>{score.name} --> {score.score} puntos</h1>)
       } else {
         pendingScores.push(<SingleScore id={score._id} name={score.name} handleUpdate={this.handleUpdateScore} />)
