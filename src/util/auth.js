@@ -1,7 +1,9 @@
 import axios from 'axios'
+import jwt from 'jwt-decode'
 
+//First checks if the token exists, then check the expiration
 export function checkAuth () {
-  return !!localStorage.getItem('jwt')
+  return !!localStorage.getItem('jwt') && jwt(localStorage.getItem('jwt')).exp > Date.now()
 }
 
 export function logOut () {

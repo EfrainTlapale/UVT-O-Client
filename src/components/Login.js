@@ -17,6 +17,7 @@ class Login extends Component {
       if (err) {
         this.setState({showError: true})
       } else {
+        this.props.handleLogin()
         this.setState({redirect: true})
       }
     })

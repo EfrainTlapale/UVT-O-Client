@@ -35,6 +35,13 @@ class App extends Component {
     })
   }
 
+  handleLogin = () => {
+    this.setState({
+      authenticated: !this.state.authenticated
+    }
+    )
+  }
+
   render () {
     return (
       <MuiThemeProvider>
@@ -52,8 +59,8 @@ class App extends Component {
             <div style={{marginLeft: '20px', marginRight: '20px'}}>
               <Switch>
                 <PrivateRoute exact path='/' component={Home} />
-                <Route exact path='/login' component={Login} />
-                <Route exact path='/logout' component={Logout} />
+                <Route exact path='/login' render={(props) => <Login handleLogin={this.handleLogin} {...props} />} />
+                <Route exact path='/logout' render={(props) => <Logout handleLogin={this.handleLogin} {...props} />} />
                 <PrivateRoute exact path='/torneo' component={Scores} />
                 <PrivateRoute exact path='/logs' component={Logs} />
                 <Route component={NotFound} />
